@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(RIDER_C__ "lessn .cpp"
         progran.cpp
-        progran.h)
+        progran.h
+        test.cpp
+        test.h)

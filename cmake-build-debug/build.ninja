@@ -61,6 +61,12 @@ build CMakeFiles/RIDER_C__.dir/progran.cpp.obj: CXX_COMPILER__RIDER_C___unscanne
   OBJECT_DIR = CMakeFiles\RIDER_C__.dir
   OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
 
+build CMakeFiles/RIDER_C__.dir/test.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_Debug E$:/RIDER$ C++/test.cpp || cmake_object_order_depends_target_RIDER_C__
+  DEP_FILE = CMakeFiles\RIDER_C__.dir\test.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\RIDER_C__.dir
+  OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target RIDER_C__
@@ -69,7 +75,7 @@ build CMakeFiles/RIDER_C__.dir/progran.cpp.obj: CXX_COMPILER__RIDER_C___unscanne
 #############################################
 # Link the executable RIDER_C__.exe
 
-build RIDER_C__.exe: CXX_EXECUTABLE_LINKER__RIDER_C___Debug CMakeFiles/RIDER_C__.dir/lessn_.cpp.obj CMakeFiles/RIDER_C__.dir/progran.cpp.obj
+build RIDER_C__.exe: CXX_EXECUTABLE_LINKER__RIDER_C___Debug CMakeFiles/RIDER_C__.dir/lessn_.cpp.obj CMakeFiles/RIDER_C__.dir/progran.cpp.obj CMakeFiles/RIDER_C__.dir/test.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\RIDER_C__.dir

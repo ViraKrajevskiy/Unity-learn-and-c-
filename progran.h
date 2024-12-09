@@ -5,12 +5,7 @@
 #ifndef PROGRAN_H
 #define PROGRAN_H
 
-
-
 class progran {
-
 };
-
-
 
 #endif //PROGRAN_H
