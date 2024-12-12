@@ -49,12 +49,6 @@ cmake_ninja_workdir = E$:/RIDER$ C++/cmake-build-debug/
 
 build cmake_object_order_depends_target_RIDER_C__: phony || .
 
-build CMakeFiles/RIDER_C__.dir/lessn_.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_Debug E$:/RIDER$ C++/lessn$ .cpp || cmake_object_order_depends_target_RIDER_C__
-  DEP_FILE = CMakeFiles\RIDER_C__.dir\lessn_.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\RIDER_C__.dir
-  OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
-
 build CMakeFiles/RIDER_C__.dir/progran.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_Debug E$:/RIDER$ C++/progran.cpp || cmake_object_order_depends_target_RIDER_C__
   DEP_FILE = CMakeFiles\RIDER_C__.dir\progran.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -67,6 +61,18 @@ build CMakeFiles/RIDER_C__.dir/test.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_D
   OBJECT_DIR = CMakeFiles\RIDER_C__.dir
   OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
 
+build CMakeFiles/RIDER_C__.dir/u.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_Debug E$:/RIDER$ C++/u.cpp || cmake_object_order_depends_target_RIDER_C__
+  DEP_FILE = CMakeFiles\RIDER_C__.dir\u.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\RIDER_C__.dir
+  OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
+
+build CMakeFiles/RIDER_C__.dir/d.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_Debug E$:/RIDER$ C++/d.cpp || cmake_object_order_depends_target_RIDER_C__
+  DEP_FILE = CMakeFiles\RIDER_C__.dir\d.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\RIDER_C__.dir
+  OBJECT_FILE_DIR = CMakeFiles\RIDER_C__.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target RIDER_C__
@@ -75,7 +81,7 @@ build CMakeFiles/RIDER_C__.dir/test.cpp.obj: CXX_COMPILER__RIDER_C___unscanned_D
 #############################################
 # Link the executable RIDER_C__.exe
 
-build RIDER_C__.exe: CXX_EXECUTABLE_LINKER__RIDER_C___Debug CMakeFiles/RIDER_C__.dir/lessn_.cpp.obj CMakeFiles/RIDER_C__.dir/progran.cpp.obj CMakeFiles/RIDER_C__.dir/test.cpp.obj
+build RIDER_C__.exe: CXX_EXECUTABLE_LINKER__RIDER_C___Debug CMakeFiles/RIDER_C__.dir/progran.cpp.obj CMakeFiles/RIDER_C__.dir/test.cpp.obj CMakeFiles/RIDER_C__.dir/u.cpp.obj CMakeFiles/RIDER_C__.dir/d.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\RIDER_C__.dir

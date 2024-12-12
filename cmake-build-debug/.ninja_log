@@ -1,8 +1,7 @@
 # ninja log v6
 357	444	7551999754908067	RIDER_C__.exe	c8cc5d14dabbacc5
 2	308	7550389300872722	CMakeFiles/RIDER_C__.dir/main.cpp.obj	462652dad1b624d3
-46	386	7554445413611495	build.ninja	f2b6f1d288faff57
-3	426	7554298639626398	CMakeFiles/RIDER_C__.dir/progran.cpp.obj	8f00f2d1875518f5
+2	192	7556301662528841	build.ninja	f2b6f1d288faff57
+6	452	7556297999285811	CMakeFiles/RIDER_C__.dir/progran.cpp.obj	8f00f2d1875518f5
 3	357	7551999751369900	CMakeFiles/RIDER_C__.dir/lessn_.cpp.obj	12e3c636ca7ad742
-22	672	7554445693400619	CMakeFiles/RIDER_C__.dir/test.cpp.obj	22a21a7758d68ed9
-15	616	7554556397038020	CMakeFiles/RIDER_C__.dir/progran.cpp.obj	8f00f2d1875518f5
+18	479	7556294203050733	CMakeFiles/RIDER_C__.dir/test.cpp.obj	22a21a7758d68ed9

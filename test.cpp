@@ -1,74 +1,77 @@
-﻿//
-// Created by user on 09.12.2024.
-//
-
-#include "test.h"
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <vector>
-
-class SimpleJSON {
-public:
-    std::string name;
-    int age;
-    std::vector<std::string> skills;
-
-    // Функция для парсинга строки JSON
-    bool parse(const std::string& jsonString) {
-        size_t pos = 0;
-        pos = jsonString.find("\"name\":", pos);
-        if (pos == std::string::npos) return false;
-
-        pos = jsonString.find("\"", pos + 7);  // Пропускаем "name":
-        size_t endPos = jsonString.find("\"", pos + 1);
-        name = jsonString.substr(pos + 1, endPos - pos - 1);
-
-        pos = jsonString.find("\"age\":", endPos);
-        if (pos == std::string::npos) return false;
-        pos = jsonString.find(":", pos + 6);  // Пропускаем "age":
-        age = std::stoi(jsonString.substr(pos + 1, jsonString.find(",", pos) - pos - 1));
-
-        pos = jsonString.find("\"skills\":", endPos);
-        if (pos == std::string::npos) return false;
-        pos = jsonString.find("[", pos + 9);  // Пропускаем "skills":
-        endPos = jsonString.find("]", pos);
-        std::string skillsStr = jsonString.substr(pos + 1, endPos - pos - 1);
-
-        std::stringstream ss(skillsStr);
-        std::string skill;
-        while (std::getline(ss, skill, ',')) {
-            skill = skill.substr(skill.find_first_not_of(" \t\n\r\f\v\""), skill.find_last_not_of(" \t\n\r\f\v\"") + 1);
-            skills.push_back(skill);
-        }
-
-        return true;
-    }
-};
 
 int main() {
-    std::ifstream inFile("data.json");
-
-    if (!inFile) {
-        std::cerr << "File not found!" << std::endl;
+    // Читаем JSON файл в строку
+    std::ifstream inputFile("data.json");
+    if (!inputFile.is_open()) {
+        std::cerr << "Не удалось открыть файл!" << std::endl;
         return 1;
     }
 
-    std::string jsonString((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
-    inFile.close();
+    std::stringstream buffer;
+    buffer << inputFile.rdbuf();
+    std::string jsonContent = buffer.str();
+    inputFile.close();
 
-    SimpleJSON data;
-    if (data.parse(jsonString)) {
-        std::cout << "Name: " << data.name << std::endl;
-        std::cout << "Age: " << data.age << std::endl;
-        std::cout << "Skills: ";
-        for (const auto& skill : data.skills) {
-            std::cout << skill << " ";
-        }
-        std::cout << std::endl;
+    // Извлечение данных из JSON вручную
+    std::string nameKey = "\"name\":";
+    std::string ageKey = "\"age\":";
+    std::string isStudentKey = "\"is_student\":";
+
+    std::string jsonName;
+    int jsonAge = 0;
+    bool jsonIsStudent = false;
+
+    size_t namePos = jsonContent.find(nameKey);
+    if (namePos != std::string::npos) {
+        size_t start = jsonContent.find('"', namePos + nameKey.length()) + 1;
+        size_t end = jsonContent.find('"', start);
+        jsonName = jsonContent.substr(start, end - start);
+    }
+
+    size_t agePos = jsonContent.find(ageKey);
+    if (agePos != std::string::npos) {
+        size_t start = jsonContent.find(':', agePos) + 1;
+        size_t end = jsonContent.find(',', start);
+        jsonAge = std::stoi(jsonContent.substr(start, end - start));
+    }
+
+    size_t isStudentPos = jsonContent.find(isStudentKey);
+    if (isStudentPos != std::string::npos) {
+        size_t start = jsonContent.find(':', isStudentPos) + 1;
+        std::string value = jsonContent.substr(start);
+        jsonIsStudent = (value.find("true") != std::string::npos);
+    }
+
+    // Ввод данных пользователем
+    std::string userName;
+    int userAge;
+    bool userIsStudent;
+
+    std::cout << "Введите имя: ";
+    std::cin >> userName;
+
+    std::cout << "Введите возраст: ";
+    std::cin >> userAge;
+
+    std::cout << "Вы студент (1 - да, 0 - нет): ";
+    std::cin >> userIsStudent;
+
+    // Проверка совпадения
+    bool isNameMatch = (userName == jsonName);
+    bool isAgeMatch = (userAge == jsonAge);
+    bool isStudentMatch = (userIsStudent == jsonIsStudent);
+
+    if (isNameMatch && isAgeMatch && isStudentMatch) {
+        std::cout << "Все данные совпадают!" << std::endl;
     } else {
-        std::cerr << "Failed to parse JSON" << std::endl;
+        std::cout << "Данные не совпадают:" << std::endl;
+        if (!isNameMatch) std::cout << "Имя не совпадает." << std::endl;
+        if (!isAgeMatch) std::cout << "Возраст не совпадает." << std::endl;
+        if (!isStudentMatch) std::cout << "Статус студента не совпадает." << std::endl;
     }
 
     return 0;

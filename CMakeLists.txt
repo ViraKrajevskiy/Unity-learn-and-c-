@@ -3,8 +3,12 @@ project(RIDER_C__)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(RIDER_C__ "lessn .cpp"
+add_executable(RIDER_C__
         progran.cpp
         progran.h
         test.cpp
-        test.h)
+        test.h
+        u.cpp
+        u.h
+        d.cpp
+        d.h)
